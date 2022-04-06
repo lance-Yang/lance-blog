@@ -13,6 +13,8 @@
 	"devDependencies": {
 		"vitepress": "^0.22.3"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"vitepress-theme-demoblock": "^1.4.2"
+	},
 	"homepage": "https://lance-Yang.github.io/lance-blog"
 }
