@@ -1,10 +1,9 @@
 import { getDemoSidebar, getBuildHelpSideBar } from './sidebar';
 
 module.exports = {
-	base: '/lance-blog/',
+	base: '/dist/',
 	title: '青衫不改博客',
 	description: 'Just playing around.',
-	base: '/lance-blog/build/',
 	head: [
 		[
 			'link',
