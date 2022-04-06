@@ -4,6 +4,7 @@ module.exports = {
 	base: '/lance-blog/',
 	title: '青衫不改博客',
 	description: 'Just playing around.',
+	base: '/lance-blog/build/',
 	head: [
 		[
 			'link',
