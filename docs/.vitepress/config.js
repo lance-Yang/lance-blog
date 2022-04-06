@@ -1,7 +1,7 @@
 import { getDemoSidebar, getBuildHelpSideBar } from './sidebar';
 
 module.exports = {
-	base: '/dist/',
+	// base: '/dist/',
 	title: '青衫不改博客',
 	description: 'Just playing around.',
 	head: [
