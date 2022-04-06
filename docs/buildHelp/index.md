@@ -187,4 +187,32 @@ export default DefaultTheme;
 上传完成返回你的仓库，这里就是上传成功了
 ![Image text](/sampleImg/upload3.png)
 
-- 接下来就是配置我们的访问路径地址
+### 2.6 使用GitHub Action 自动化部署
+- 首先在我们项目的根目录下新建`.github/workflows`目录(GitHub Action 指定的配置文件目录),我们在里面新建一个workflows.yml文件,也可以新建多个文件,后缀名统一为.yml文件，GitHub只要发现`.github/workflows`目录有.yml文件，就会自动运行该文件。接下来就是配置我们的workflows文件
+
+- 大家也可以参考一下我项目的配置文件：https://github.com/lance-Yang/lance-blog
+- 更多配置信息参考可以参考这里：https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html
+
+```yml
+name: lance-blog
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3 
+    - name: Install and Build
+      run: |
+        yarn
+        yarn build
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: ./docs/.vitepress/dist/
+```
+- 只要我们push代码上去，github action就会自动帮我们运行打包发布我们的项目了
